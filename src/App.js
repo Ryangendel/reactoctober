@@ -1,25 +1,38 @@
 import logo from './logo.svg';
 import './App.css';
+import Home from "./pages/Home"
+import Bikes from "./pages/Bikes"
+import Jackets from "./pages/Jackets"
+import { useEffect, useState } from "react"
+import { useLocation, BrowserRouter as Router, Link, Route, Routes } from "react-router-dom"
 
-function App() {
+const App = props => {
+  // const { hash } = useLocation();
+
+  const [x, setX] = useState(0)
+
+  useEffect(() => {
+    //calldatabase and pass in hash.productid
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <Router>
+      <ul>
+        <li><Link to="/">TO HOME</Link></li>
+        <li><Link to="/a">TO A</Link></li>
+        <li><Link to="/b">TO B</Link></li>
+      </ul>
+      <Routes>
+        <Route exact path="/" element={<Home/>} />
+        <Route path="/home/mountainbikes" element={<Bikes/>} />
+        <Route path="/womenjackets" element={<Jackets/>} />
+        <Route path="/product/:productid/:productdescription/:bulldog" element={<Jackets/>} />
+      </Routes>
+    </Router>
+    
     </div>
-  );
+  )
 }
 
 export default App;
