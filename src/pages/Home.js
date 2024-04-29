@@ -8,6 +8,12 @@ function Home() {
     console.log(jackets)
     console.log(working)
     console.log("-----")
+
+    var changeValue = ()=>{
+        
+        setJackets("The N")
+    }
+
     return (
         <div>
             <h1>{jackets[1].id}</h1>
@@ -16,6 +22,7 @@ function Home() {
                 return <li key={i}>{item}</li>
             })
             }</h1>
+            <button onclick={changeValue}>click me to change value</button>
         </div>
     )
 }
